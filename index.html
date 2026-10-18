@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Design portfolio of Aarna Pandey: social media, print posters, presentations, data visuals and writing.">
+<title>Aarna Pandey Design Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=IBM+Plex+Mono:wght@400;600&family=Barlow+Condensed:wght@700;800&display=swap">
+<style>
+/* Layout: cobalt gallery wall. Fanned-poster hero, filterable print wall, a minimal-to-maximal comparison band, a slide viewer. */
+:root {
+  --cobalt: #1A34C4;
+  --ink: #0B1A66;
+  --paper: #FFFFFF;
+  --pink: #FF2E7E;
+  --marigold: #F7C531;
+  --soft: rgba(255,255,255,0.78);
+  --line: rgba(255,255,255,0.28);
+  --display: 'Bodoni Moda', 'Didot', 'Bodoni 72', Georgia, serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --cond: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--cobalt); color: var(--paper); font-family: var(--mono); font-size: 14px; line-height: 1.55; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--ink); }
+.wrap { max-width: 1240px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: var(--marigold); }
+a:hover { color: var(--paper); }
+:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; }
+button { font: inherit; color: inherit; cursor: pointer; }
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: 3px; text-transform: uppercase; }
+
+/* top bar + ticker */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--ink); border-bottom: 1px solid var(--line); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; flex-wrap: wrap; }
+.brand { font-family: var(--display); font-size: 22px; font-style: italic; text-decoration: none; color: var(--paper); }
+.bar nav { display: flex; gap: 18px; flex-wrap: wrap; }
+.bar nav a { color: var(--soft); text-decoration: none; }
+.bar nav a:hover { color: var(--marigold); }
+.ticker { overflow: hidden; border-top: 1px solid var(--line); background: var(--marigold); color: var(--ink); }
+.ticker-track { display: flex; width: max-content; animation: tick 38s linear infinite; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker span { padding: 7px 28px; white-space: nowrap; font-weight: 600; font-size: 12px; letter-spacing: 2px; }
+.ticker b { color: #B4002F; }
+@keyframes tick { to { transform: translateX(-50%); } }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 40px; align-items: center; padding-block: 64px 48px; }
+.hero h1 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(56px, 9vw, 128px); line-height: 0.9; letter-spacing: -2px; text-wrap: balance; }
+.hero h1 em { color: var(--marigold); }
+.hero h1 .pink { color: var(--pink); font-style: italic; font-weight: 700; }
+.hero p { max-width: 46ch; color: var(--soft); margin: 24px 0 0; font-size: 15px; }
+.hero .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 20px; border: 2px solid var(--paper); background: transparent; text-decoration: none; color: var(--paper); font-family: var(--mono); font-weight: 600; letter-spacing: 1px; }
+.btn.solid { background: var(--pink); border-color: var(--pink); }
+.btn:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+
+.fan { position: relative; height: 470px; }
+.fan button { position: absolute; left: 50%; top: 50%; width: 46%; aspect-ratio: 3 / 4; padding: 0; border: 6px solid var(--paper); background: var(--paper); box-shadow: 0 18px 40px rgba(5,10,50,0.45); transition: transform 0.5s cubic-bezier(.2,.8,.2,1); }
+.fan button img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.fan button:nth-child(1) { transform: translate(-95%, -50%) rotate(-9deg); }
+.fan button:nth-child(2) { transform: translate(-50%, -54%) rotate(1deg); z-index: 2; }
+.fan button:nth-child(3) { transform: translate(-5%, -48%) rotate(8deg); }
+.fan:hover button:nth-child(1), .fan:focus-within button:nth-child(1) { transform: translate(-128%, -48%) rotate(-14deg); }
+.fan:hover button:nth-child(2), .fan:focus-within button:nth-child(2) { transform: translate(-50%, -60%) rotate(0deg) scale(1.04); }
+.fan:hover button:nth-child(3), .fan:focus-within button:nth-child(3) { transform: translate(28%, -46%) rotate(13deg); }
+.fan-hint { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; color: var(--soft); }
+
+/* sections */
+section { padding-block: 56px; }
+.head { display: flex; align-items: end; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 28px; }
+.head h2 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: clamp(38px, 5.5vw, 64px); line-height: 1; text-wrap: balance; }
+.head h2 em { font-style: italic; color: var(--marigold); }
+.head p { margin: 0; max-width: 44ch; color: var(--soft); }
+
+/* filters */
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+.chip { min-height: 44px; padding: 0 16px; border: 2px solid var(--line); background: transparent; font-family: var(--mono); font-size: 13px; display: inline-flex; align-items: center; gap: 8px; }
+.chip .n { font-size: 11px; opacity: 0.7; font-variant-numeric: tabular-nums; }
+.chip:hover { border-color: var(--paper); }
+.chip[aria-pressed="true"] { background: var(--marigold); border-color: var(--marigold); color: var(--ink); font-weight: 600; }
+
+/* wall */
+.wall { columns: 4 230px; column-gap: 22px; }
+.card { break-inside: avoid; margin: 0 0 26px; perspective: 900px; }
+.card[hidden] { display: none !important; }
+.card button { display: block; width: 100%; padding: 0; border: 0; background: none; text-align: left; }
+.print { background: var(--paper); padding: 8px; box-shadow: 0 10px 26px rgba(5,10,50,0.35); transition: transform 0.25s ease, box-shadow 0.25s ease; transform-style: preserve-3d; }
+.print img { display: block; width: 100%; height: auto; }
+.card button:hover .print { box-shadow: 0 22px 44px rgba(5,10,50,0.5); }
+.cap { display: flex; justify-content: space-between; gap: 10px; margin-top: 10px; }
+.cap strong { font-family: var(--display); font-weight: 400; font-size: 19px; line-height: 1.15; }
+.cap .tag { flex: none; align-self: start; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 7px; border: 1px solid var(--line); color: var(--soft); }
+.cap .tag.ibkr { border-color: var(--pink); color: #FF9DBE; }
+.cap .tag.hem { border-color: var(--marigold); color: var(--marigold); }
+.card .sub { color: var(--soft); font-size: 12px; margin-top: 2px; }
+
+/* compare band */
+.band { background: var(--ink); }
+.compare-wrap { display: grid; grid-template-columns: minmax(0, 520px) minmax(0, 1fr); gap: 48px; align-items: center; }
+.compare { position: relative; width: 100%; max-width: 100%; aspect-ratio: 3 / 4; border: 8px solid var(--paper); background: var(--paper); user-select: none; touch-action: pan-y; }
+.compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.compare .top { clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0); }
+.compare .handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 4px; margin-left: -2px; background: var(--paper); pointer-events: none; box-shadow: 0 0 0 1px rgba(0,0,0,0.25); }
+.compare .knob { position: absolute; top: 50%; left: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; border-radius: 50%; background: var(--pink); border: 3px solid var(--paper); display: grid; place-items: center; }
+.compare input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+.compare .tl, .compare .tr { position: absolute; top: 12px; padding: 4px 8px; font-size: 11px; letter-spacing: 2px; background: var(--ink); color: var(--paper); pointer-events: none; }
+.compare .tl { left: 12px; } .compare .tr { right: 12px; background: var(--pink); }
+.compare:focus-within { outline: 3px solid var(--marigold); outline-offset: 4px; }
+.pairs { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0; }
+.notes { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.notes li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; color: var(--soft); }
+.notes li::before { content: "+"; color: var(--pink); font-weight: 600; }
+.compare-copy h3 { font-family: var(--display); font-weight: 400; font-size: clamp(32px, 4vw, 48px); line-height: 1.02; margin: 8px 0 0; text-wrap: balance; }
+.compare-copy h3 em { color: var(--pink); }
+
+/* logo board */
+.logos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.logo { padding: 0; border: 0; background: none; text-align: left; }
+.logo .sq { aspect-ratio: 1; overflow: hidden; border: 6px solid var(--paper); background: var(--paper); transition: border-radius 0.35s ease, transform 0.35s ease; }
+.logo .sq img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.logos.round .sq { border-radius: 50%; }
+.logo:hover .sq { transform: translateY(-6px) rotate(-2deg); }
+.logo .t { display: block; margin-top: 10px; font-family: var(--cond); font-weight: 800; font-size: 22px; letter-spacing: 0.5px; text-transform: uppercase; }
+.logo .s { display: block; color: var(--soft); font-size: 12px; }
+.toggle-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
+.switch { display: inline-flex; border: 2px solid var(--line); }
+.switch button { min-height: 44px; padding: 0 16px; border: 0; background: transparent; font-family: var(--mono); font-size: 13px; }
+.switch button[aria-pressed="true"] { background: var(--paper); color: var(--ink); font-weight: 600; }
+.ibkr-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; margin-top: 44px; align-items: start; }
+.ibkr-row .card { margin: 0; }
+
+/* slides */
+.deck { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.screen { position: relative; aspect-ratio: 16 / 9; max-width: 100%; border: 8px solid var(--paper); background: var(--paper); overflow: hidden; }
+.screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.4s ease, transform 0.4s ease; }
+.screen img[aria-hidden="true"] { opacity: 0; transform: translateX(4%); }
+.deck-ctl { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.dots { display: flex; gap: 8px; }
+.dots button { width: 44px; height: 44px; border: 2px solid var(--line); background: transparent; font-family: var(--mono); font-weight: 600; font-variant-numeric: tabular-nums; }
+.dots button[aria-current="true"] { background: var(--marigold); color: var(--ink); border-color: var(--marigold); }
+
+/* writing */
+.paper { background: var(--paper); color: var(--ink); max-width: 860px; padding: clamp(24px, 5vw, 56px); box-shadow: 14px 14px 0 var(--pink); }
+.paper-meta { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: #3A4580; border-bottom: 2px solid var(--ink); padding-bottom: 14px; }
+.paper h3 { margin: 22px 0 0; font-family: var(--display); font-weight: 400; font-style: italic; font-size: clamp(30px, 4.4vw, 50px); line-height: 1.05; text-wrap: balance; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 28px 0 18px; }
+.stats div { border-top: 4px solid var(--marigold); padding-top: 10px; display: flex; flex-direction: column; gap: 2px; }
+.stats b { font-family: var(--display); font-size: 30px; font-weight: 700; line-height: 1; }
+.stats span { font-size: 12px; color: #3A4580; }
+.paper details { border-top: 1px solid #C9CEE6; }
+.paper details:last-of-type { border-bottom: 1px solid #C9CEE6; }
+.paper summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px; min-height: 56px; font-family: var(--display); font-size: 22px; }
+.paper summary::-webkit-details-marker { display: none; }
+.paper summary::after { content: "+"; margin-left: auto; font-family: var(--mono); font-size: 22px; color: var(--pink); transition: transform 0.25s ease; }
+.paper details[open] summary::after { transform: rotate(45deg); }
+.paper summary .num { width: 30px; height: 30px; display: grid; place-items: center; background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: 13px; flex: none; }
+.paper details p { margin: 0 0 22px; max-width: 65ch; font-size: 15px; line-height: 1.75; }
+@media (max-width: 520px) { .stats { grid-template-columns: minmax(0, 1fr); } }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var(--soft); }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+/* lightbox */
+dialog.lb { width: min(1100px, calc(100vw - 24px)); max-width: none; max-height: calc(100vh - 24px); padding: 0; border: 0; background: var(--ink); color: var(--paper); }
+dialog.lb::backdrop { background: rgba(6,12,52,0.88); }
+.lb-inner { display: grid; grid-template-columns: minmax(0, 1fr) 280px; min-height: 0; max-height: calc(100vh - 24px); }
+.lb-stage { display: grid; place-items: center; padding: 20px; background: #070F45; min-height: 0; }
+.lb-stage img { max-width: 100%; max-height: calc(100vh - 64px); width: auto; height: auto; display: block; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+.lb-side { padding: 24px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; }
+.lb-side h3 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; line-height: 1.05; }
+.lb-side p { margin: 0; color: var(--soft); }
+.lb-side dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 14px; font-size: 12px; }
+.lb-side dt { color: var(--soft); letter-spacing: 2px; text-transform: uppercase; font-size: 11px; }
+.lb-side dd { margin: 0; font-variant-numeric: tabular-nums; }
+.lb-nav { display: flex; gap: 8px; margin-top: auto; }
+.lb-nav button, .lb-close { min-width: 44px; min-height: 44px; border: 2px solid var(--line); background: transparent; display: grid; place-items: center; }
+.lb-nav button:hover, .lb-close:hover { border-color: var(--paper); }
+.lb-close { position: absolute; top: 10px; right: 10px; background: var(--ink); }
+.lb-count { align-self: center; margin-left: auto; font-size: 12px; color: var(--soft); font-variant-numeric: tabular-nums; }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: minmax(0, 1fr); padding-block: 40px 24px; }
+  .fan { height: 380px; }
+  .compare-wrap { grid-template-columns: minmax(0, 1fr); }
+  .logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ibkr-row { grid-template-columns: minmax(0, 1fr); }
+  .lb-inner { grid-template-columns: minmax(0, 1fr); }
+  .lb-stage img { max-height: 62vh; }
+}
+@media (max-width: 520px) {
+  .wall { columns: 2; column-gap: 12px; }
+  .cap { flex-direction: column; gap: 4px; }
+  .cap strong { font-size: 16px; }
+  .fan { height: 300px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ticker-track { animation: none; }
+  .fan button, .print, .logo .sq, .screen img { transition: none; }
+}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#top">Aarna Pandey</a>
+    <nav aria-label="Sections">
+      <a href="#ibkr">Social media</a>
+      <a href="#work">All work</a>
+      <a href="#maximal">Print posters</a>
+      <a href="#slides">Slides</a>
+      <a href="#writing">Writing</a>
+    </nav>
+  </div>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="ticker"></div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <div class="label">Design portfolio for the Office of Corporate Relations</div>
+      <h1>Finance <em>&amp;</em><br><span class="pink">Fashion</span> by design</h1>
+      <p>Social media for the IBKR Trading Competition at Gies, print posters for my Hemline Index article, presentation slides, a data visual built for a report, and published writing.</p>
+      <div class="cta">
+        <a class="btn solid" href="#ibkr">Start with social media</a>
+        <a class="btn" href="#work">See all 16 pieces</a>
+        
+      </div>
+    </div>
+    <div class="fan" id="fan" aria-label="Featured pieces"></div>
+  </div>
+
+  <section id="ibkr">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="label">Social media campaign</div>
+          <h2>IBKR <em>Trading Competition</em></h2>
+        </div>
+        <p>Four logo directions, the Info Night countdown post and the account icon for @ibkrtradingcompetition, run with Interactive Brokers as the corporate partner. Flip the switch to see how each logo crops as a profile picture.</p>
+      </div>
+      <div class="toggle-row">
+        <span class="label">Preview as</span>
+        <div class="switch" role="group" aria-label="Logo preview shape">
+          <button type="button" data-shape="square" aria-pressed="true">Square</button>
+          <button type="button" data-shape="round" aria-pressed="false">Profile circle</button>
+        </div>
+      </div>
+      <div class="logos" id="logos"></div>
+      <div class="ibkr-row" id="ibkrRow"></div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="label">The wall</div>
+          <h2>All <em>work</em></h2>
+        </div>
+        <p>Filter by the kind of work. Click any piece to open it full size, then use the arrow keys to flip through.</p>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filter work"></div>
+      <div class="wall" id="wall"></div>
+    </div>
+  </section>
+
+  <section id="maximal" class="band">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="label">Print posters: The Hemline Index</div>
+          <h2>Minimal to <em>maximal</em></h2>
+        </div>
+        <p>Two of the posters, remade louder with patchwork, beads, silk and tie-dye. Drag across the poster to compare.</p>
+      </div>
+      <div class="compare-wrap">
+        <div class="compare" id="compare" style="--pos: 50%">
+          <img id="cmpMax" alt="">
+          <img id="cmpMin" class="top" alt="">
+          <span class="tl">MINIMAL</span><span class="tr">MAXIMAL</span>
+          <div class="handle"><div class="knob">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"></path></svg>
+          </div></div>
+          <input type="range" id="cmpRange" min="0" max="100" value="50" aria-label="Compare minimal and maximal versions">
+        </div>
+        <div class="compare-copy">
+          <div class="label" id="cmpLabel"></div>
+          <h3 id="cmpTitle"></h3>
+          <div class="pairs" id="pairs" role="group" aria-label="Choose a poster"></div>
+          <ul class="notes" id="cmpNotes"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="slides" class="band">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="label">Presentation</div>
+          <h2>Bloomberg <em>Terminal</em> slides</h2>
+        </div>
+        <p>Slides 5 and 6 of the deck. Use the arrows, the numbers, or click the slide to open it full size.</p>
+      </div>
+      <div class="deck">
+        <button type="button" class="screen" id="screen" aria-label="Open slide full size" style="padding:0;cursor:zoom-in"></button>
+        <div class="deck-ctl">
+          <div class="dots" id="dots" role="group" aria-label="Slides"></div>
+          <div style="display:flex;gap:8px">
+            <button type="button" class="btn" id="prevSlide" aria-label="Previous slide">Prev</button>
+            <button type="button" class="btn" id="nextSlide" aria-label="Next slide">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="writing">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="label">Published writing</div>
+          <h2>Art Market <em>in Russia</em></h2>
+        </div>
+        <p>An excerpt from my paper analysing the art market in Moscow. Open each part to read it.</p>
+      </div>
+      <article class="paper">
+        <div class="paper-meta">
+          <span class="label">International Journal of Social Science Research and Review</span>
+          <span class="label">By Aarna Pandey</span>
+        </div>
+        <h3>Art Market in Russia: Analysis of the Art Market in Moscow</h3>
+        <div class="stats">
+          <div><b>15</b><span>respondents interviewed</span></div>
+          <div><b>17 to 65</b><span>age range of respondents</span></div>
+          <div><b>Snowball</b><span>sampling method</span></div>
+        </div>
+        <details open>
+          <summary><span class="num">1</span>Introduction and market dynamics</summary>
+          <p>The Russian art market has historically been a medium for intricate artworks, poetry and other forms of art, but it also witnesses and absorbs Russia through a cultural, philosophical, political, and social lens. The evolution of Russian art captures the transformation of the state through a multitude of lenses, which is particularly the reason why the learnings behind Russian art and the market itself becomes imperative when discussing the state’s history.</p>
+        </details>
+        <details>
+          <summary><span class="num">2</span>Materials and methods</summary>
+          <p>Using a qualitative approach, involving the use of semi-structured questionnaires and in-depth interviews with Russian art veterans, curators, exhibitionists and younger artist, this paper attempted to explore the rules, conditions and strategies adopted by Russian artists in the present market. Using a snowball sampling method, a total of 15 respondents were interviewed for this study. The respondents of the study were Russian citizens living in Russia and abroad and were aged between 17-65. While half of them were full-time artists, the rest of the sample included respondents who also had other work arrangement, either as academicians, art teachers, content creators, among others to subsist. This arrangement itself was a strong indicator of the lack of economic stability among artists in Russia.</p>
+        </details>
+        <details>
+          <summary><span class="num">3</span>Conclusion</summary>
+          <p>After a careful consideration of all the points above, it is clear that Russian art encapsulates an abundance of information about the culture and perspective on the culture. The Russian art market and artists have consistently been subjected to restrictions on portrayals and on the liberty of what they are able to showcase in their artwork. The initial intention of this paper was to investigate what the immediate impact was on the Russian art market and this includes artists, art educators, buyers, sellers, exhibition managers, galleries and the economy as a whole.</p>
+        </details>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Aarna Pandey, Gies College of Business, University of Illinois</span>
+    <span>aarnapan11@gmail.com · <a href="https://www.linkedin.com/in/aarna-pandey">linkedin.com/in/aarna-pandey</a></span>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Design viewer">
+  <button type="button" class="lb-close" id="lbClose" aria-label="Close viewer">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+  </button>
+  <div class="lb-inner">
+    <div class="lb-stage"><img id="lbImg" alt=""></div>
+    <div class="lb-side">
+      <div class="label" id="lbProject"></div>
+      <h3 id="lbTitle"></h3>
+      <p id="lbDesc"></p>
+      <dl>
+        <dt>Format</dt><dd id="lbType"></dd>
+        <dt id="lbSizeT">Size</dt><dd id="lbSize"></dd>
+      </dl>
+      <div class="lb-nav">
+        <button type="button" id="lbPrev" aria-label="Previous piece"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button>
+        <button type="button" id="lbNext" aria-label="Next piece"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+        <span class="lb-count" id="lbCount"></span>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const HEM = 'The Hemline Index', IBKR = 'IBKR Trading Competition', BBG = 'Bloomberg Terminal deck', PY = 'The Python Project', ART = 'First art exhibition';
+const WORK = [
+  { id: 'hem-rising', title: 'Rising Hem', project: HEM, type: 'Poster', size: '600 × 800', ratio: '3/4',
+    desc: 'A dress whose jagged hem is a stock chart climbing up and to the right.' },
+  { id: 'hem-scissors', title: 'Cut to the Market', project: HEM, type: 'Poster', size: '600 × 800',
+    desc: "Tailor's scissors snipping along a falling chart line, set over a wall of red figures." },
+  { id: 'hem-tape', title: 'Measured in Inches, Priced in Points', project: HEM, type: 'Poster', size: '600 × 800',
+    desc: 'Tape measures hung from a waistband like a bar chart, one per decade.' },
+  { id: 'hem-runway', title: 'Bull Market, Bare Knees', project: HEM, type: 'Poster', size: '600 × 800',
+    desc: 'A stiletto climbing a stepped chart that doubles as a runway.' },
+  { id: 'hem-scissors-max', title: 'Cut to the Market, maximal', project: HEM, type: 'Poster', size: '600 × 800',
+    desc: 'A stitched patchwork quilt, hanging red threads, beaded scissors and a MARKDOWN price tag, with the title on silk.' },
+  { id: 'hem-runway-max', title: 'Bull Market, Bare Knees, maximal', project: HEM, type: 'Poster', size: '600 × 800',
+    desc: 'A staircase where every step is a different fabric, beaded stilettos, and a beaded border.' },
+  { id: 'ibkr-infonight', title: 'Info Night countdown', project: IBKR, type: 'Poster', size: '1080 × 1350',
+    desc: 'Instagram countdown post for the competition info night on Friday, Oct 16 at 5 PM.' },
+  { id: 'ibkr-logo-candles', title: 'Logo A: Rising candles', project: IBKR, type: 'Logo', size: '640 × 640',
+    desc: 'Three rising candlesticks in a red square.' },
+  { id: 'ibkr-logo-monogram', title: 'Logo B: TC monogram', project: IBKR, type: 'Logo', size: '640 × 640',
+    desc: 'An italic TC monogram with a red arrow rising through it.' },
+  { id: 'ibkr-logo-seal', title: 'Logo C: Ticker seal', project: IBKR, type: 'Logo', size: '640 × 640',
+    desc: 'A round seal reading Trading Competition, Powered by IBKR, around a rising bar chart.' },
+  { id: 'ibkr-logo-trophy', title: 'Logo D: Trophy chart', project: IBKR, type: 'Logo', size: '640 × 640',
+    desc: 'A red trophy with a white arrow rising out of it.' },
+  { id: 'ibkr-pfp', title: 'Illinois x IBKR profile picture', project: IBKR, type: 'Icon', size: '1080 × 1080',
+    desc: 'Account icon pairing the Illinois Block I with the Interactive Brokers mark.' },
+  { id: 'slide-5', title: 'Slide 5: Raise your hand', project: BBG, type: 'Slide', size: '1600 × 900',
+    desc: 'Everyday search tools on the left, combined into one tool on the right: the Bloomberg Terminal.' },
+  { id: 'slide-6', title: 'Slide 6: Importance of the Terminal', project: BBG, type: 'Slide', size: '1600 × 900',
+    desc: 'Users, cost per seat and audience for the Bloomberg Terminal.' },
+  { id: 'past-heatmap', title: 'S&P 500 price correlation heatmap', project: PY, type: 'Data viz', ph: 680, past: true,
+    tool: 'Python (Matplotlib, Seaborn)',
+    desc: 'A heatmap I built in Python for a project on the S&P 500, showing how the top 20 companies move together. It turns a raw financial dataset into something stakeholders can read at a glance.' },
+  { id: 'past-painting', title: 'Exhibition painting', project: ART, type: 'Painting', ph: 569, past: true,
+    tool: 'Paint on canvas',
+    desc: 'One of my paintings from my first art exhibition, built on a clear separation between background and foreground.' },
+];
+const src = id => 'img/' + id + '.jpg';
+const byId = Object.fromEntries(WORK.map(w => [w.id, w]));
+const tagClass = p => p === HEM ? 'hem' : p === IBKR ? 'ibkr' : '';
+const short = p => p === HEM ? 'Hemline' : p === IBKR ? 'IBKR' : p === PY ? 'Python' : p === ART ? 'Exhibition' : 'Bloomberg';
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ticker */
+const tickItems = ['HEMLINE INDEX <b>▲</b> 6 POSTERS', 'IBKR TRADING COMPETITION <b>▲</b> 4 LOGO CONCEPTS', 'INFO NIGHT <b>▲</b> FRI OCT 16, 5 PM', 'MINIMAL <b>▲</b> MAXIMAL', 'BLOOMBERG TERMINAL <b>▲</b> 2 SLIDES', 'PYTHON <b>▲</b> S&amp;P 500 HEATMAP', 'FIRST ART EXHIBITION <b>▲</b> PAINTING', 'PUBLISHED <b>▲</b> ART MARKET IN RUSSIA','@IBKRTRADINGCOMPETITION <b>▲</b> POWERED BY IBKR'];
+document.getElementById('ticker').innerHTML = [...tickItems, ...tickItems].map(t => '<span>' + t + '</span>').join('');
+
+/* lightbox */
+const lb = document.getElementById('lb');
+let lbList = WORK.map(w => w.id), lbIdx = 0;
+function showLb() {
+  const w = byId[lbList[lbIdx]];
+  const img = document.getElementById('lbImg');
+  img.src = src(w.id); img.alt = w.title;
+  document.getElementById('lbProject').textContent = w.project;
+  document.getElementById('lbTitle').textContent = w.title;
+  document.getElementById('lbDesc').textContent = w.desc;
+  document.getElementById('lbType').textContent = w.type;
+  document.getElementById('lbSizeT').textContent = w.size ? 'Size' : 'Made with';
+  document.getElementById('lbSize').textContent = w.size ? w.size + ' px' : w.tool;
+  document.getElementById('lbCount').textContent = (lbIdx + 1) + ' / ' + lbList.length;
+}
+function openLb(id, list) {
+  lbList = list && list.length ? list : WORK.map(w => w.id);
+  lbIdx = Math.max(0, lbList.indexOf(id));
+  showLb();
+  if (!lb.open) { try { lb.showModal(); } catch (e) { lb.setAttribute('open', ''); } }
+}
+const step = d => { lbIdx = (lbIdx + d + lbList.length) % lbList.length; showLb(); };
+document.getElementById('lbPrev').onclick = () => step(-1);
+document.getElementById('lbNext').onclick = () => step(1);
+document.getElementById('lbClose').onclick = () => lb.close();
+lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+lb.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+  if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+});
+
+/* fan */
+const fan = document.getElementById('fan');
+['hem-rising', 'hem-scissors-max', 'ibkr-infonight'].forEach(id => {
+  const b = document.createElement('button');
+  b.type = 'button'; b.setAttribute('aria-label', 'Open ' + byId[id].title);
+  b.innerHTML = '<img src="' + src(id) + '" alt="">';
+  b.onclick = () => openLb(id);
+  fan.appendChild(b);
+});
+fan.insertAdjacentHTML('beforeend', '<div class="fan-hint label" aria-hidden="true">Hover to fan, click to open</div>');
+
+/* wall + filters */
+const FILTERS = [
+  { key: 'all', label: 'All', test: () => true },
+  { key: 'social', label: 'Social media', test: w => w.project === IBKR },
+  { key: 'print', label: 'Print posters', test: w => w.project === HEM },
+  { key: 'reports', label: 'Presentations and reports', test: w => w.type === 'Slide' || w.type === 'Data viz' },
+  { key: 'logo', label: 'Logos', test: w => w.type === 'Logo' },
+  { key: 'art', label: 'Fine art', test: w => w.type === 'Painting' },
+];
+const wall = document.getElementById('wall');
+function cardHTML(w) {
+  return '<button type="button" data-open="' + w.id + '"><div class="print"><img src="' + src(w.id) + '" alt="' + w.title + '" loading="lazy" width="600" height="' + (w.ph ? w.ph : w.type === 'Slide' ? 338 : w.type === 'Logo' || w.type === 'Icon' ? 600 : w.id === 'ibkr-infonight' ? 750 : 800) + '"></div>' +
+    '<div class="cap"><strong>' + w.title + '</strong><span class="tag ' + tagClass(w.project) + '">' + short(w.project) + '</span></div>' +
+    '<div class="sub">' + w.type + '</div></button>';
+}
+WORK.forEach(w => {
+  const c = document.createElement('figure');
+  c.className = 'card'; c.dataset.id = w.id;
+  c.innerHTML = cardHTML(w);
+  wall.appendChild(c);
+});
+let visible = WORK.map(w => w.id);
+wall.addEventListener('click', e => {
+  const b = e.target.closest('[data-open]'); if (b) openLb(b.dataset.open, visible);
+});
+const chips = document.getElementById('chips');
+let saved = 'all';
+try { saved = localStorage.getItem('ap-filter') || 'all'; } catch (e) {}
+function applyFilter(key) {
+  const f = FILTERS.find(x => x.key === key) || FILTERS[0];
+  visible = [];
+  wall.querySelectorAll('.card').forEach(c => {
+    const show = f.test(byId[c.dataset.id]);
+    c.hidden = !show; if (show) visible.push(c.dataset.id);
+  });
+  chips.querySelectorAll('.chip').forEach(ch => ch.setAttribute('aria-pressed', String(ch.dataset.key === f.key)));
+  try { localStorage.setItem('ap-filter', f.key); } catch (e) {}
+}
+FILTERS.forEach(f => {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'chip'; b.dataset.key = f.key;
+  b.innerHTML = f.label + ' <span class="n">' + WORK.filter(f.test).length + '</span>';
+  b.onclick = () => applyFilter(f.key);
+  chips.appendChild(b);
+});
+applyFilter(saved);
+
+/* tilt */
+if (!reduce && window.matchMedia('(hover: hover)').matches) {
+  wall.addEventListener('pointermove', e => {
+    const p = e.target.closest('.print'); if (!p) return;
+    const r = p.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+    p.style.transform = 'rotateY(' + (x * 10).toFixed(2) + 'deg) rotateX(' + (-y * 10).toFixed(2) + 'deg) translateY(-4px)';
+  });
+  wall.addEventListener('pointerout', e => {
+    const p = e.target.closest('.print'); if (p && !p.contains(e.relatedTarget)) p.style.transform = '';
+  });
+}
+
+/* compare */
+const PAIRS = [
+  { min: 'hem-scissors', max: 'hem-scissors-max', name: 'Cut to the Market',
+    notes: ['Pink number wall becomes a stitched patchwork quilt of gingham, block prints, dots and tie-dye', 'Red threads hang through the top half', 'The falling chart becomes a red cord with running stitches', 'Gold scissors with beaded handles and a MARKDOWN price tag', 'Title card set on silk in a double border'] },
+  { min: 'hem-runway', max: 'hem-runway-max', name: 'Bull Market, Bare Knees',
+    notes: ['Red threads fall across the black background', 'Every step of the chart is a different fabric, silk at the top', 'The stilettos become bead mosaics', 'A beaded border runs around the whole poster', 'Bare Knees in hot pink with a gold drop shadow'] },
+];
+const cmp = document.getElementById('compare'), range = document.getElementById('cmpRange');
+const pairsEl = document.getElementById('pairs');
+function setPair(i) {
+  const p = PAIRS[i];
+  document.getElementById('cmpMin').src = src(p.min);
+  document.getElementById('cmpMax').src = src(p.max);
+  document.getElementById('cmpLabel').textContent = 'Poster ' + (i + 1) + ' of ' + PAIRS.length;
+  document.getElementById('cmpTitle').innerHTML = p.name + ', <em>turned up</em>';
+  document.getElementById('cmpNotes').innerHTML = p.notes.map(n => '<li>' + n + '</li>').join('');
+  pairsEl.querySelectorAll('button').forEach((b, j) => b.setAttribute('aria-pressed', String(j === i)));
+}
+PAIRS.forEach((p, i) => {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'chip'; b.textContent = p.name;
+  b.onclick = () => setPair(i);
+  pairsEl.appendChild(b);
+});
+range.addEventListener('input', () => cmp.style.setProperty('--pos', range.value + '%'));
+setPair(0);
+if (!reduce) {
+  let t0 = null;
+  const sweep = ts => {
+    if (t0 === null) t0 = ts;
+    const k = Math.min(1, (ts - t0) / 1800);
+    const v = 50 + Math.sin(k * Math.PI * 2) * 30;
+    range.value = v; cmp.style.setProperty('--pos', v + '%');
+    if (k < 1) requestAnimationFrame(sweep);
+  };
+  const io = new IntersectionObserver(es => { if (es[0].isIntersecting) { io.disconnect(); requestAnimationFrame(sweep); } }, { threshold: 0.5 });
+  io.observe(cmp);
+}
+
+/* logos */
+const logoIds = ['ibkr-logo-candles', 'ibkr-logo-monogram', 'ibkr-logo-seal', 'ibkr-logo-trophy'];
+const logosEl = document.getElementById('logos');
+logoIds.forEach(id => {
+  const w = byId[id];
+  const [letter, name] = w.title.split(': ');
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'logo';
+  b.innerHTML = '<div class="sq"><img src="' + src(id) + '" alt="' + w.title + '"></div><span class="t">' + name + '</span><span class="s">' + letter + '</span>';
+  b.onclick = () => openLb(id, logoIds);
+  logosEl.appendChild(b);
+});
+document.querySelectorAll('.switch button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.switch button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  logosEl.classList.toggle('round', b.dataset.shape === 'round');
+});
+const ibkrRow = document.getElementById('ibkrRow');
+['ibkr-infonight', 'ibkr-pfp'].forEach(id => {
+  const c = document.createElement('figure');
+  c.className = 'card'; c.innerHTML = cardHTML(byId[id]);
+  c.querySelector('button').onclick = () => openLb(id, ['ibkr-infonight', 'ibkr-pfp']);
+  ibkrRow.appendChild(c);
+});
+
+/* slides */
+const slides = ['slide-5', 'slide-6'];
+const screen = document.getElementById('screen'), dots = document.getElementById('dots');
+let cur = 0;
+slides.forEach((id, i) => {
+  screen.insertAdjacentHTML('beforeend', '<img src="' + src(id) + '" alt="' + byId[id].title + '">');
+  const d = document.createElement('button');
+  d.type = 'button'; d.textContent = id.split('-')[1]; d.setAttribute('aria-label', byId[id].title);
+  d.onclick = () => goSlide(i);
+  dots.appendChild(d);
+});
+function goSlide(i) {
+  cur = (i + slides.length) % slides.length;
+  screen.querySelectorAll('img').forEach((im, j) => im.setAttribute('aria-hidden', String(j !== cur)));
+  dots.querySelectorAll('button').forEach((d, j) => d.setAttribute('aria-current', String(j === cur)));
+}
+document.getElementById('prevSlide').onclick = () => goSlide(cur - 1);
+document.getElementById('nextSlide').onclick = () => goSlide(cur + 1);
+screen.onclick = () => openLb(slides[cur], slides);
+goSlide(0);
+</script>
+
+</body>
+</html>
